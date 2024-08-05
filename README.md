@@ -1,3 +1,15 @@
+### Testing your GitHub Pages site locally with Jekyll
+1. Prerequisites
+    - Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+    - Install [Bundler](https://bundler.io/)
+    - Install [Jekyll](https://jekyllrb.com/docs/installation/)
+2. Run
+    ```bash 
+    bundle exec jekyll serve
+    ```
+3. To preview your site, in your web browser, navigate to [http://localhost:4000](http://localhost:4000)
+
+### Testing Contents
 Following are the blogs that I compiled from my learnings on Spark:
 - [Where does Spark fit in Hadoop ecosystem?](https://spoddutur.github.io/spark-notes/hadoop-map-reduce-vs-spark)
 - [How to Size Executors, Cores and Memory for a Spark application running in memory](https://spoddutur.github.io/spark-notes/distribution_of_executors_cores_and_memory_for_spark_application)
