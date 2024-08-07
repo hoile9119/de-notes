@@ -12,4 +12,5 @@ gem "jekyll"
 # install webrick for ruby >= 3.0
 gem "webrick", "~> 1.8"
 
+# install jekyll_plugins, very important
 gem "github-pages", "~> 231", group: :jekyll_plugins
