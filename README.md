@@ -12,8 +12,10 @@
 ### Spark Config Generator
 - [Spark Conf Generator](https://hoile9119.github.io/spark-notes/spark-conf-generator)
 
+### TODO - XML Parser from XSD
+
 ### References Contents
-- [Spark Conf Generator](https://sparkconfigoptimizer.com/)
+- [Spark Conf Optimizer](https://sparkconfigoptimizer.com/)
 
 ### Test Contents
 Following are the blogs that I compiled from my learnings on Spark:

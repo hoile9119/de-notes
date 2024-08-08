@@ -125,11 +125,7 @@
             <div class="form-group">
                 <label for="executorCores">spark.executor.cores:</label>
                 <input type="number" id="executorCores" value="4">
-            </div>
-            <div class="form-group">
-                <label for="executorCores">spark.executor.cores:</label>
-                <input type="number" id="executorCores" value="4">
-            </div>            
+            </div>       
             <div class="form-group">
                 <label for="executorMemoryOverhead">spark.executor.memoryOverhead (MB):</label>
                 <input type="number" id="executorMemoryOverhead" value="921">
@@ -170,6 +166,8 @@
     <h3>Result:</h3>
     <pre id="output"></pre>
     <script>
+        document.getElementById('generateSubmit').addEventListener('click', function (event) {
+            event.preventDefault();
             const appName = document.getElementById('appName').value;
             const master = document.getElementById('master').value;
             const deployMode = document.getElementById('deployMode').value;
@@ -187,8 +185,6 @@
             const hiveDynamicPartition = document.getElementById('hiveDynamicPartition').value;
             const hiveDynamicPartitionMode = document.getElementById('hiveDynamicPartitionMode').value;
             const sparkJar = document.getElementById('sparkJar').value;
-        document.getElementById('generateSubmit').addEventListener('click', function (event) {
-            event.preventDefault();
             const command = `spark3-submit \\\n` +
             `--name "${appName}" \\\n` +
             `--master ${master} \\\n` +
@@ -212,6 +208,23 @@
         });
         document.getElementById('generateConf').addEventListener('click', function (event) {
             event.preventDefault();
+            const appName = document.getElementById('appName').value;
+            const master = document.getElementById('master').value;
+            const deployMode = document.getElementById('deployMode').value;
+            const driverCores = document.getElementById('driverCores').value;
+            const driverMemory = document.getElementById('driverMemory').value;
+            const driverMemoryOverhead = document.getElementById('driverMemoryOverhead').value;
+            const driverMaxResultSize = document.getElementById('driverMaxResultSize').value;
+            const executorInstances = document.getElementById('executorInstances').value;
+            const executorMemory = document.getElementById('executorMemory').value;
+            const executorCores = document.getElementById('executorCores').value;
+            const executorMemoryOverhead = document.getElementById('executorMemoryOverhead').value;
+            const dynamicAllocation = document.getElementById('dynamicAllocation').value;
+            const adaptiveQueryExecution = document.getElementById('adaptiveQueryExecution').value;
+            const portMaxRetries = document.getElementById('portMaxRetries').value;
+            const hiveDynamicPartition = document.getElementById('hiveDynamicPartition').value;
+            const hiveDynamicPartitionMode = document.getElementById('hiveDynamicPartitionMode').value;
+            const sparkJar = document.getElementById('sparkJar').value;
             const confDict = 
         `{
             "spark.master": "${master}",
