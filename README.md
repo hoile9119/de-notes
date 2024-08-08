@@ -10,7 +10,7 @@
 3. To preview your site, in your web browser, navigate to [http://localhost:4000](http://localhost:4000)
 
 ### Spark Config Generator
-- [Spark Conf Generator](https://hoile9119.github.io/spark-notes/spark-conf-generator)
+- [Spark Conf Generator](../spark-conf-generator)
 
 ### TODO - XML Parser from XSD
 
