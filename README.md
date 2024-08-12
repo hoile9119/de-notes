@@ -10,9 +10,14 @@
 3. To preview your site, in your web browser, navigate to [http://localhost:4000](http://localhost:4000)
 
 ### Spark Config Generator
-- [Spark Conf Generator](../spark-conf-generator)
+- [Spark Conf Generator](../spark-notes/spark-conf-generator)
 
-### TODO - XML Parser from XSD
+### TODO - Parsing nested XML using XSD structure
+- [Parsing nested XML](../spark-notes/parsing-nested-xml)
+- Extract a Spark DataFrame schema from XSD file
+- Parsing nested XML
+
+### TO DO - Apache Iceberg guide
 
 ### References Contents
 - [Spark Conf Optimizer](https://sparkconfigoptimizer.com/)

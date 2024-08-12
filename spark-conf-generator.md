@@ -6,7 +6,7 @@
     <title>Spark Submit Command Generator</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Avenir, Helvetica, Arial, sans-serif;;
             margin: 20px;
         }
         .form-group {
@@ -74,7 +74,7 @@
     <h1>SPARK CONF GENERATOR</h1>
     <form id="sparkSubmitForm">
         <div class="basic-conf">
-            <h4>BASIC CONFIG</h4>
+            <h4>BASIC CONFIGURATIONS</h4>
             <div class="form-group">
                 <label for="appName">Application Name:</label>
                 <input type="text" id="appName" value="mySparkApplication" required>
@@ -140,7 +140,7 @@
             </div>
         </div>
         <div class="additional-conf">
-            <h4>ADDITIONAL CONFIGURATION</h4>
+            <h4>ADDITIONAL CONFIGURATIONS</h4>
             <div class="form-group">
                 <label for="portMaxRetries">spark.port.maxRetries:</label>
                 <input type="number" id="portMaxRetries" value="100">
