@@ -15,7 +15,7 @@
 
 ### TODO
 - [x] If additional config, if value is input then add it to spark submit generator else return nothing
-- [ ] If additional config, if value is input then add it to spark conf generator else return nothing
+- [x] If additional config, if value is input then add it to spark conf generator else return nothing
 - [ ] If hover over the label or input, definition should be pop up
 - [ ] Create a copy button to copy generated text
 

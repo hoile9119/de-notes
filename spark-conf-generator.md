@@ -155,10 +155,6 @@
                 <input type="text" id="hiveDynamicPartitionMode" placeholder="nonstrict">
             </div>
             <div class="form-group">
-                <label for="sparkJar">spark.jars:</label>
-                <input type="text" id="sparkJar" placeholder="/path/to/your/jar1.jar,/path/to/your/jar2.jar">
-            </div>
-            <div class="form-group">
                 <label for="sparkSqlAdaptiveSkewJoin">spark.sql.adaptive.skewJoin.enabled:</label>
                 <input type="text" id="sparkSqlAdaptiveSkewJoin" placeholder="true">
             </div>
@@ -166,6 +162,18 @@
                 <label for="sparkSqlAutoBroadcastJoinThreshold">spark.sql.autoBroadcastJoinThreshold:</label>
                 <input type="text" id="sparkSqlAutoBroadcastJoinThreshold" placeholder="10MB">
             </div>           
+            <div class="form-group">
+                <label for="sparkJar">spark.jars:</label>
+                <input type="text" id="sparkJar" placeholder="/jar1.jar,/jar2.jar">
+            </div>
+            <div class="form-group">
+                <label for="sparkFiles">spark.files:</label>
+                <input type="text" id="sparkFiles" placeholder="/file1,/file2">
+            </div>
+            <div class="form-group">
+                <label for="sparkSubmitPyFiles">spark.submit.pyFiles:</label>
+                <input type="text" id="sparkSubmitPyFiles" placeholder="*.whl">
+            </div>                            
         </div>
         <div class="generator">
             <button type="submit" id="generateSubmit">Generate Spark Submit</button>
@@ -194,6 +202,10 @@
             const hiveDynamicPartition = document.getElementById('hiveDynamicPartition').value;
             const hiveDynamicPartitionMode = document.getElementById('hiveDynamicPartitionMode').value;
             const sparkJar = document.getElementById('sparkJar').value;
+            const sparkSqlAdaptiveSkewJoin = document.getElementById('sparkSqlAdaptiveSkewJoin').value;
+            const sparkSqlAutoBroadcastJoinThreshold = document.getElementById('sparkSqlAutoBroadcastJoinThreshold').value;
+            const sparkFiles = document.getElementById('sparkFiles').value;
+            const sparkSubmitPyFiles = document.getElementById('sparkSubmitPyFiles').value;
             const command = `spark3-submit \\\n` +
             // basic configuration
             `--name "${appName}" \\\n` +
@@ -213,8 +225,12 @@
             // additional configurations
             `${portMaxRetries ? `--conf spark.port.maxRetries=${portMaxRetries} \\\n` : ''}` +
             `${hiveDynamicPartition ? `--conf spark.hadoop.hive.exec.dynamic.partition=${hiveDynamicPartition} \\\n` : ''}` +
-            `${hiveDynamicPartitionMode ? `--conf spark.hadoop.hive.exec.dynamic.partition.mode${hiveDynamicPartitionMode} \\\n` : ''}` +
+            `${hiveDynamicPartitionMode ? `--conf spark.hadoop.hive.exec.dynamic.partition.mode=${hiveDynamicPartitionMode} \\\n` : ''}` +
+            `${sparkSqlAdaptiveSkewJoin ? `--conf spark.sql.adaptive.skewJoin.enabled=${sparkSqlAdaptiveSkewJoin} \\\n` : ''}` +
+            `${sparkSqlAutoBroadcastJoinThreshold ? `--conf spark.sql.autoBroadcastJoinThreshold=${sparkSqlAutoBroadcastJoinThreshold} \\\n` : ''}` +            
             `${sparkJar ? `--jars=${sparkJar} \\\n` : ''}` +
+            `${sparkFiles ? `--files="${sparkFiles}" \\\n` : ''}` +
+            `${sparkSubmitPyFiles ? `--py-files="${sparkSubmitPyFiles}" \\\n` : ''}` +
             `main.py`;
             document.getElementById('output').textContent = command;
         });
@@ -237,19 +253,28 @@
             const hiveDynamicPartition = document.getElementById('hiveDynamicPartition').value;
             const hiveDynamicPartitionMode = document.getElementById('hiveDynamicPartitionMode').value;
             const sparkJar = document.getElementById('sparkJar').value;
+            const sparkSqlAdaptiveSkewJoin = document.getElementById('sparkSqlAdaptiveSkewJoin').value;
+            const sparkSqlAutoBroadcastJoinThreshold = document.getElementById('sparkSqlAutoBroadcastJoinThreshold').value;
+            const sparkFiles = document.getElementById('sparkFiles').value;
+            const sparkSubmitPyFiles = document.getElementById('sparkSubmitPyFiles').value;
             const confDict = 
-        `{
-            "spark.master": "${master}",
-            "spark.driver.cores": ${driverCores},
-            "spark.driver.memory": "${driverMemory}g",
-            "spark.executor.instances": ${executorInstances},
-            "spark.executor.cores": ${executorCores},
-            "spark.executor.memory": "${executorMemory}g",
-            "spark.port.maxRetries": ${document.getElementById('portMaxRetries').value},            
-            "spark.hadoop.hive.exec.dynamic.partition": ${hiveDynamicPartition === "true" ? "True" : "False"},
-            "spark.hadoop.hive.exec.dynamic.partition.mode": "${hiveDynamicPartitionMode}",
-            "spark.dynamicAllocation.enabled": ${dynamicAllocation === "true" ? "True" : "False"}
-        }`;
+            `{ \n` +
+            `"spark.master": "${master}",\n` +
+            `"spark.driver.cores": ${driverCores},\n` +
+            `"spark.driver.memory": "${driverMemory}g",\n` +
+            `"spark.executor.instances": ${executorInstances},\n` +
+            `"spark.executor.cores": ${executorCores},\n` +
+            `"spark.executor.memory": "${executorMemory}g",\n` +
+            `"spark.dynamicAllocation.enabled": ${dynamicAllocation === "true" ? "True" : "False"},\n` +
+            `${portMaxRetries ? `"spark.port.maxRetries":${portMaxRetries},\n` : ''}` +        
+            `${hiveDynamicPartition ? `"spark.hadoop.hive.exec.dynamic.partition":${hiveDynamicPartition === "true" ? "True" : "False"},\n` : ''}` +
+            `${hiveDynamicPartitionMode ? `"spark.hadoop.hive.exec.dynamic.partition.mode":"${hiveDynamicPartitionMode}",\n` : ''}` +
+            `${sparkSqlAdaptiveSkewJoin ? `"spark.sql.adaptive.skewJoin.enabled":${sparkSqlAdaptiveSkewJoin === "true" ? "True" : "False"},\n` : ''}` +
+            `${sparkSqlAutoBroadcastJoinThreshold ? `"spark.sql.autoBroadcastJoinThreshold":"${sparkSqlAutoBroadcastJoinThreshold}",\n` : ''}` +
+            `${sparkJar ? `"spark.jars":"${sparkJar}",\n` : ''}` +
+            `${sparkFiles ? `"spark.files"="${sparkFiles}",\n` : ''}` +
+            `${sparkSubmitPyFiles ? `"spark.submit.pyFiles"="${sparkSubmitPyFiles}",\n` : ''}` +
+        `}`;
             document.getElementById('output').textContent = confDict;
         });
     </script>
