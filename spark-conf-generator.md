@@ -26,6 +26,7 @@
             padding: 2.5px;
             box-sizing: border-box;
             border: none;
+            text-align: center;
             /* Ensures padding is included in the width */
         }
         button {
@@ -143,20 +144,28 @@
             <h4>ADDITIONAL CONFIGURATIONS</h4>
             <div class="form-group">
                 <label for="portMaxRetries">spark.port.maxRetries:</label>
-                <input type="number" id="portMaxRetries" value="100">
+                <input type="text" id="portMaxRetries" placeholder="100">
             </div>
             <div class="form-group">
                 <label for="hiveDynamicPartition">spark.hadoop.hive.exec.dynamic.partition:</label>
-                <input type="text" id="hiveDynamicPartition" value="true">
+                <input type="text" id="hiveDynamicPartition" placeholder="true">
             </div>
             <div class="form-group">
                 <label for="hiveDynamicPartitionMode">spark.hadoop.hive.exec.dynamic.partition.mode:</label>
-                <input type="text" id="hiveDynamicPartitionMode" value="nonstrict">
+                <input type="text" id="hiveDynamicPartitionMode" placeholder="nonstrict">
             </div>
             <div class="form-group">
                 <label for="sparkJar">spark.jars:</label>
-                <input type="text" id="sparkJar" value="/path/to/your/jar1.jar,/path/to/your/jar2.jar">
+                <input type="text" id="sparkJar" placeholder="/path/to/your/jar1.jar,/path/to/your/jar2.jar">
             </div>
+            <div class="form-group">
+                <label for="sparkSqlAdaptiveSkewJoin">spark.sql.adaptive.skewJoin.enabled:</label>
+                <input type="text" id="sparkSqlAdaptiveSkewJoin" placeholder="true">
+            </div>
+            <div class="form-group">
+                <label for="sparkSqlAutoBroadcastJoinThreshold">spark.sql.autoBroadcastJoinThreshold:</label>
+                <input type="text" id="sparkSqlAutoBroadcastJoinThreshold" placeholder="10MB">
+            </div>           
         </div>
         <div class="generator">
             <button type="submit" id="generateSubmit">Generate Spark Submit</button>
@@ -186,9 +195,11 @@
             const hiveDynamicPartitionMode = document.getElementById('hiveDynamicPartitionMode').value;
             const sparkJar = document.getElementById('sparkJar').value;
             const command = `spark3-submit \\\n` +
+            // basic configuration
             `--name "${appName}" \\\n` +
             `--master ${master} \\\n` +
             `--deploy-mode ${deployMode} \\\n` +
+            // spark-default config
             `--driver-cores ${driverCores} \\\n` +
             `--driver-memory ${driverMemory}g \\\n` +
             `--num-executors ${executorInstances} \\\n` +
@@ -199,10 +210,11 @@
             `--conf spark.driver.driverMaxResultSize=${driverMaxResultSize}g \\\n` +
             `--conf spark.dynamicAllocation.enabled=${dynamicAllocation} \\\n` +
             `--conf spark.sql.adaptive.enabled=${adaptiveQueryExecution} \\\n` +
-            `--conf spark.port.maxRetries=${portMaxRetries} \\\n` +
-            `--conf spark.hadoop.hive.exec.dynamic.partition=${hiveDynamicPartition} \\\n` +
-            `--conf spark.hadoop.hive.exec.dynamic.partition.mode=${hiveDynamicPartitionMode} \\\n` +
-            `--jars ${sparkJar} \\\n` +
+            // additional configurations
+            `${portMaxRetries ? `--conf spark.port.maxRetries=${portMaxRetries} \\\n` : ''}` +
+            `${hiveDynamicPartition ? `--conf spark.hadoop.hive.exec.dynamic.partition=${hiveDynamicPartition} \\\n` : ''}` +
+            `${hiveDynamicPartitionMode ? `--conf spark.hadoop.hive.exec.dynamic.partition.mode${hiveDynamicPartitionMode} \\\n` : ''}` +
+            `${sparkJar ? `--jars=${sparkJar} \\\n` : ''}` +
             `main.py`;
             document.getElementById('output').textContent = command;
         });
