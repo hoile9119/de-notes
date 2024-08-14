@@ -30,7 +30,7 @@
             /* Ensures padding is included in the width */
         }
         button {
-            padding: 10px 15px;
+            padding: 5px 10px;
         }
         #output {
             width: 100%;
@@ -68,6 +68,24 @@
             text-align: center;
             /* Center the button */
         }
+        .tooltip {
+        position: relative;
+        }
+        .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 240px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+        }
+        .tooltip:hover .tooltiptext {
+        visibility: visible;
+        }        
     </style>
 </head>
 
@@ -167,12 +185,16 @@
                 <input type="text" id="sparkJar" placeholder="/jar1.jar,/jar2.jar">
             </div>
             <div class="form-group">
-                <label for="sparkFiles">spark.files:</label>
+                <label for="sparkFiles" class="tooltip">spark.files:
+                    <span class="tooltiptext">Enter the paths to your Spark files, separated by commas.</span>
+                </label>
                 <input type="text" id="sparkFiles" placeholder="/file1,/file2">
             </div>
             <div class="form-group">
-                <label for="sparkSubmitPyFiles">spark.submit.pyFiles:</label>
-                <input type="text" id="sparkSubmitPyFiles" placeholder="*.whl">
+                <label for="sparkSubmitPyFiles" class="tooltip">spark.submit.pyFiles:
+                    <span class="tooltiptext">Enter the paths to your Spark files, separated by commas.</span>
+                </label>
+                <input type="text" id="sparkSubmitPyFiles" placeholder="*.whl">            
             </div>                            
         </div>
         <div class="generator">
@@ -180,7 +202,10 @@
             <button type="submit" id="generateConf">Generate Spark Config</button>
         </div>
     </form>
-    <h3>Result:</h3>
+    <div class="generator">
+        <h3>Result:</h3><br>
+        <button id="copyText">&#x2398;</button>
+    </div>
     <pre id="output"></pre>
     <script>
         document.getElementById('generateSubmit').addEventListener('click', function (event) {
@@ -277,6 +302,11 @@
         `}`;
             document.getElementById('output').textContent = confDict;
         });
+        document.getElementById('copyText').addEventListener('click', function (event) {
+            var text = document.getElementById('output').textContent;
+            navigator.clipboard.writeText(text);
+            // navigator.clipboard.writeText(text.value);
+        })
     </script>
 </body>
 
