@@ -13,21 +13,14 @@
 ## Spark Config Generator
 - [Spark Conf Generator](../spark-notes/spark-conf-generator)
 
-### TODO
-- [x] If additional config, if value is input then add it to spark submit generator else return nothing
-- [x] If additional config, if value is input then add it to spark conf generator else return nothing
-- [x] If hover over the label or input, definition should be pop up
-- [x] Create a copy button to copy generated text
 
-## Parsing nested XML using XSD structure
+## Parsing nested XML using XSD structure -> ON HOLD
 - [Parsing nested XML](../spark-notes/parsing-nested-xml)
 
-### TO DO
-- [x] Extract a Spark DataFrame schema from XSD file
-- [x] Pyspark notes
-
 ## Apache Iceberg guide
+- [Apache Iceberg Guide](../spark-notes/apache-iceberg-guide)
 - [Iceberg 101](https://www.dremio.com/blog/apache-iceberg-101-your-guide-to-learning-apache-iceberg-concepts-and-practices/)
+- [Architecture](https://www.dremio.com/resources/guides/apache-iceberg-an-architectural-look-under-the-covers/)
 
 ### TO DO
 
