@@ -27,7 +27,7 @@
 - [IMPALA](../spark-notes/pyspark-modules-impala)
 
 ## Containerization
-- [Containerization](../spark-notes/containerization.md)
+- [Containerization](../spark-notes/containerization)
 
 ### TO DO
 
