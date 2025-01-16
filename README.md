@@ -22,6 +22,10 @@
 - [Iceberg 101](https://www.dremio.com/blog/apache-iceberg-101-your-guide-to-learning-apache-iceberg-concepts-and-practices/)
 - [Architecture](https://www.dremio.com/resources/guides/apache-iceberg-an-architectural-look-under-the-covers/)
 
+## Pyspark Modules
+- [HDFS](../spark-notes/pyspark-modules-hdfs)
+- [IMPALA](../spark-notes/pyspark-modules-impala)
+
 ### TO DO
 
 ## Poetry with Conda
