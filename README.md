@@ -25,8 +25,9 @@
 - [Architecture](https://www.dremio.com/resources/guides/apache-iceberg-an-architectural-look-under-the-covers/)
 
 ## Pyspark Modules
-- [HDFS](../spark-notes/pyspark-modules-hdfs)
-- [IMPALA](../spark-notes/pyspark-modules-impala)
+- [hdfs](../spark-notes/pyspark-modules-hdfs)
+- [impala](../spark-notes/pyspark-modules-impala)
+- [write-table](../spark-notes/pyspark-modules-write-table)
 
 ## Containerization
 - [Containerization](../spark-notes/containerization)
