@@ -13,6 +13,8 @@
 ## Spark Config Generator
 - [Spark Conf Generator](../spark-notes/spark-conf-generator)
 
+## Deepseek with VSCode
+- [Deepseek with VSCode](../spark-notes/deepseek-with-vscode)
 
 ## Parsing nested XML using XSD structure -> ON HOLD
 - [Parsing nested XML](../spark-notes/parsing-nested-xml)
