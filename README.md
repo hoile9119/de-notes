@@ -28,6 +28,7 @@
 - [hdfs](../spark-notes/pyspark-modules-hdfs)
 - [impala](../spark-notes/pyspark-modules-impala)
 - [write-table](../spark-notes/pyspark-modules-write-table)
+- [json-flattener](../spark-notes/pyspark-modules-json-flattener)
 
 ## Containerization
 - [Containerization](../spark-notes/containerization)
