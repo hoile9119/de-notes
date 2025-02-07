@@ -104,3 +104,13 @@ flattener = JSONFlattener()
 
 df = flattener.flatten(json_df)
 ```
+
+## GET JSON SCHEMA FROM JSON STRING COLUMN SPARK
+```python
+from pyspark.sql.functions import from_json
+json_schema = spark.read.json(df.select("payload").rdd.map(lambda x: x[0])).schema
+
+df = df.withColumn("payload", from_json("payload", json_schema))
+# this will fully convert a json string column to a json structure column
+# then you can apply json flattener to it
+```
