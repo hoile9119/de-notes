@@ -14,20 +14,20 @@
 ## SPARK
 ### [Config Generator](../de-notes/spark/config-generator)
 ### Spark Modules
-1. [hdfs](../de-notes/spark/modules/hdfs)
-2. [impala](../de-notes/spark/modules/impala)
-3. [write](../de-notes/spark/modules/write)
-4. [json](../de-notes/spark/modules/json)
-5. [xml](../de-notes/spark/modules/xml)
+-  [hdfs](../de-notes/spark/modules/hdfs)
+-  [impala](../de-notes/spark/modules/impala)
+-  [write](../de-notes/spark/modules/write)
+-  [json](../de-notes/spark/modules/json)
+-  [xml](../de-notes/spark/modules/xml)
 
 ### Table Format
-1. [iceberg](../de-notes/spark/table-format/iceberg)
+- [iceberg](../de-notes/spark/table-format/iceberg)
 
 ## CONTAINERIZATION
-1. [mac-setup](../de-notes/containerization/mac-setup)
+- [setup](../de-notes/containerization/mac-setup)
 
 ## LLMs
-1. [deepseek](../de-notes/llms/deepseek)
+- [deepseek](../de-notes/llms/deepseek)
 
 ## Test Contents
 Following are the blogs that I compiled from my learnings on Spark:
