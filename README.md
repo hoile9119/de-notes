@@ -19,6 +19,7 @@
 -  [write](../de-notes/spark/modules/write)
 -  [json](../de-notes/spark/modules/json)
 -  [xml](../de-notes/spark/modules/xml)
+-  [webhook](../de-notes/spark/modules/webhook)
 
 ### Table Format
 - [iceberg](../de-notes/spark/table-format/iceberg)
