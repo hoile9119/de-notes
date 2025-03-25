@@ -78,11 +78,11 @@ class WriteTable:
             .drop("bdp_hash", "bdp_rand")
 
         compacted_df.write \
+            .mode("overwrite") \
             .format("parquet") \
             .option("compression", "snappy") \
             .option("path", self.hdfs_path) \
-            .partitionBy(*self.table_config['partition_cols']) \
-            .saveAsTable(f"{self.table_config['schema_name']}.{self.table_config['table_name']}", mode = "overwrite")
+            .insertInto(f"{self.table_config['schema_name']}.{self.table_config['table_name']}")
 
         # Clean up temporary path
         self._clean_hdfs_path(tmp_hdfs_path)
