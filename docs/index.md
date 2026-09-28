@@ -22,5 +22,6 @@ the one you had to make legible to someone else.
 ## Start here
 
 - [Table Formats](lakehouse/table-formats.md) — Iceberg internals end to end
+- [Flink on Kubernetes](streaming/apache-flink/architecture.md) — two schedulers, slots vs parallelism, keyed state
 - [PySpark Function Reference](spark/pyspark-functions.md) — the built-ins that replace a UDF
 - [Spark Submit Generator](tools/spark-submit-generator/index.html) — build a command from a form

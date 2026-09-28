@@ -7,7 +7,10 @@ edit_uri: edit/main/docs/
 
 nav:
   - Home: index.md
-  - Streaming: streaming/index.md
+  - Streaming:
+      - Overview: streaming/index.md
+      - Apache Flink:
+          - Architecture Overview: streaming/apache-flink/architecture.md
   - Spark:
       - Overview: spark/index.md
       - PySpark Function Reference: spark/pyspark-functions.md
@@ -35,13 +38,13 @@ theme:
   name: material
   palette:
     - scheme: slate
-      primary: black
+      primary: light-blue
       accent: light-blue
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
     - scheme: default
-      primary: white
+      primary: light-blue
       accent: light-blue
       toggle:
         icon: material/weather-night
@@ -65,8 +68,19 @@ theme:
     - content.code.select
     - content.code.annotate
 
+extra_css:
+  - assets/global.css
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
+  - assets/mermaid-theme.js
+
 plugins:
   - search
+  - mkdocs-video
+  - mkdocs-pdf
+  - mkdocs-jupyter:
+        ignore_h1_titles: True
 
 markdown_extensions:
   - tables
@@ -85,11 +99,20 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.superfences
+  - pymdownx.arithmatex
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.details
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
+  - pymdownx.critic
   - pymdownx.magiclink
   - toc:
       permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
