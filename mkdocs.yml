@@ -1,0 +1,95 @@
+site_name: Data Engineering Notes
+site_description: Streaming, Spark, and lakehouse notes from six years in fintech data engineering
+site_url: https://hoile9119.github.io/de-notes/
+repo_url: https://github.com/hoile9119/de-notes
+repo_name: hoile9119/de-notes
+edit_uri: edit/main/docs/
+
+nav:
+  - Home: index.md
+  - Streaming: streaming/index.md
+  - Spark:
+      - Overview: spark/index.md
+      - PySpark Function Reference: spark/pyspark-functions.md
+      - Recipes:
+          - spark/recipes/index.md
+          - HDFS Helper: spark/recipes/hdfs.md
+          - Impala Client: spark/recipes/impala.md
+          - JSON Flattener: spark/recipes/json.md
+          - Nested XML with XSD: spark/recipes/xml.md
+          - Write Table: spark/recipes/write.md
+          - Webhook Sender: spark/recipes/webhook.md
+  - Lakehouse:
+      - Overview: lakehouse/index.md
+      - Table Formats: lakehouse/table-formats.md
+  - Databricks: databricks/index.md
+  - Architecture: architecture/index.md
+  - Platform:
+      - Overview: platform/index.md
+      - Containerization: platform/containerization.md
+      - Local LLMs: platform/local-llms.md
+  - Tools: tools/index.md
+  - About: about.md
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: black
+      accent: light-blue
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default
+      primary: white
+      accent: light-blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+
+plugins:
+  - search
+
+markdown_extensions:
+  - tables
+  - admonition
+  - def_list
+  - sane_lists
+  - md_in_html
+  - attr_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.magiclink
+  - toc:
+      permalink: true

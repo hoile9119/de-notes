@@ -1,35 +1,28 @@
 # de-notes
 
 Source for **[Data Engineering Notes](https://hoile9119.github.io/de-notes/)** —
-a Jekyll site published with GitHub Pages.
+an [MkDocs](https://www.mkdocs.org/) (Material theme) site published with
+GitHub Pages.
 
-Content lives in the section folders (`streaming/`, `spark/`, `lakehouse/`, …).
-Start at [`index.md`](index.md); each section has its own `index.md` acting as
-that section's map.
+Content lives under `docs/`, organized into section folders (`docs/streaming/`,
+`docs/spark/`, `docs/lakehouse/`, …). Start at [`docs/index.md`](docs/index.md);
+each section has its own `index.md` acting as that section's map. Navigation is
+defined explicitly in [`mkdocs.yml`](mkdocs.yml) — **a new page is unreachable
+until it is added to the `nav` there.**
 
 ## Running locally
 
-Prerequisites: [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
-and [Bundler](https://bundler.io/).
+Prerequisites: Python 3.
 
 ```bash
-bundle install
-bundle exec jekyll serve
+pip install -r requirements.txt
+mkdocs serve
 ```
 
-Then open <http://localhost:4000/de-notes/>.
+Then open <http://127.0.0.1:8000/>.
 
-`baseurl` is set in [`_config.yml`](_config.yml), so no `--baseurl` flag is
-needed — local and production URLs match.
+## Deployment
 
-## Notes on the build
-
-- Theme is [dinky](https://github.com/pages-themes/dinky), which renders page
-  content and nothing else — no sidebar, no generated nav. Navigation is
-  therefore hand-written: each section's `index.md` links to its own pages, and
-  every page carries a back-link to its section. **A new page is unreachable
-  until it is linked from its section index.**
-- The `github-pages` gem bundles `jekyll-optional-front-matter`, which means
-  **any `.md` file committed here becomes a public page** unless it is listed
-  under `exclude:` in [`_config.yml`](_config.yml). `CLAUDE.md` and this README
-  are excluded.
+Pushes to `main` trigger [`.github/workflows/docs.yml`](.github/workflows/docs.yml),
+which builds the site with `mkdocs build --strict` and publishes it to GitHub
+Pages.
