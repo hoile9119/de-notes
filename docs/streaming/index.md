@@ -10,6 +10,9 @@ and the stores that serve the results back at low latency.
     - [Architecture Overview](apache-flink/architecture.md) — the two control
       loops, `FlinkDeployment`, JobManager and TaskManagers, slots vs
       parallelism, `keyBy` and keyed state, and failure recovery
+    - [Architecture Walkthrough](apache-flink/architecture-walkthrough.md) —
+      the concepts confirmed tab by tab in the Flink Web UI against one real
+      deployment
 
 ## Planned
 
