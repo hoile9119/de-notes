@@ -16,6 +16,7 @@ nav:
           - Architecture Overview: streaming/apache-flink/architecture.md
           - Architecture Walkthrough: streaming/apache-flink/architecture-walkthrough.md
           - Development and Deployment: streaming/apache-flink/development-and-deployment.md
+          - Reader Schema from Schema Registry: streaming/apache-flink/reader-schema-from-schema-registry.md
           - Concepts:
               - "Kafka Source": streaming/apache-flink/concepts/kafka-source.md
               - "Table API and DataStream API": streaming/apache-flink/concepts/table-and-datastream-api.md

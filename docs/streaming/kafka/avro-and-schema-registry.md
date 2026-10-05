@@ -175,6 +175,11 @@ matters**: a nullable column becomes a `["null", T]` union in the derived reader
 schema, while a `NOT NULL` column does not — so declare columns nullable unless
 the field genuinely can never be null.
 
+Generating these columns from the registry instead of writing them by hand is
+common — see
+[Reader Schema from Schema Registry](../apache-flink/reader-schema-from-schema-registry.md)
+for how, and for the two ways to do it.
+
 !!! warning "The PyFlink DataStream gap"
     PyFlink's DataStream Avro deserialization schemas read **plain** Avro — they
     do not understand the Confluent header. In PyFlink, either declare the
@@ -402,3 +407,4 @@ at the top of the page.
 ### Related
 
 - [Apache Flink: Development and Deployment](../apache-flink/development-and-deployment.md) — building and running the PyFlink jobs that consume these topics.
+- [Reader Schema from Schema Registry](../apache-flink/reader-schema-from-schema-registry.md) — turning a registry schema into table columns, and so into the reader schema.
