@@ -9,9 +9,21 @@ nav:
   - Home: index.md
   - Streaming:
       - Overview: streaming/index.md
+      - Kafka:
+          - Avro and Schema Registry: streaming/kafka/avro-and-schema-registry.md
       - Apache Flink:
+          - Overview: streaming/apache-flink/index.md
           - Architecture Overview: streaming/apache-flink/architecture.md
           - Architecture Walkthrough: streaming/apache-flink/architecture-walkthrough.md
+          - Development and Deployment: streaming/apache-flink/development-and-deployment.md
+          - Concepts:
+              - "Kafka Source": streaming/apache-flink/concepts/kafka-source.md
+              - "Table API and DataStream API": streaming/apache-flink/concepts/table-and-datastream-api.md
+              - "Time and Watermarks": streaming/apache-flink/concepts/time-and-watermarks.md
+              - "Windows and Joins": streaming/apache-flink/concepts/windows-and-joins.md
+              - "State, Checkpoints and Savepoints": streaming/apache-flink/concepts/state-and-checkpoints.md
+              - "PyFlink Execution Model": streaming/apache-flink/concepts/pyflink-execution-model.md
+              - "Sinks and Delivery Guarantees": streaming/apache-flink/concepts/sinks-and-delivery-guarantees.md
   - Spark:
       - Overview: spark/index.md
       - PySpark Function Reference: spark/pyspark-functions.md
