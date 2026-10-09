@@ -28,11 +28,16 @@ and the stores that serve the results back at low latency.
        [Sinks and Delivery Guarantees](apache-flink/concepts/sinks-and-delivery-guarantees.md):
        APIs, time and watermarks, windows and joins, state and checkpoints,
        and the PyFlink execution model
+- **[Spark Structured Streaming](apache-spark/index.md)** — start with the
+  [Summary](apache-spark/summary.md) for the whole picture on one page, then
+  five concept pages following a record from the
+  [Kafka Source and Checkpoints](apache-spark/concepts/kafka-source-and-checkpoints.md)
+  to [Output Modes, Sinks and Exactly-once](apache-spark/concepts/output-modes-and-sinks.md):
+  micro-batches and triggers, event time and watermarks, and the state store
 
 ## Planned
 
 - **Flink** — HA and zero-downtime upgrades
 - **Flink latency** — state backend, checkpointing, and where a 100 ms p99 budget goes
-- **Spark Structured Streaming** — triggers, watermarks, the state store, output modes
 - **Kafka** — delivery semantics
 - **Serving** — writing online features to Cassandra, and the read path back

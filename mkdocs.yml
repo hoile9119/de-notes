@@ -25,6 +25,15 @@ nav:
               - "State, Checkpoints and Savepoints": streaming/apache-flink/concepts/state-and-checkpoints.md
               - "PyFlink Execution Model": streaming/apache-flink/concepts/pyflink-execution-model.md
               - "Sinks and Delivery Guarantees": streaming/apache-flink/concepts/sinks-and-delivery-guarantees.md
+      - Spark Structured Streaming:
+          - Overview: streaming/apache-spark/index.md
+          - "Summary: Triggers, Output Modes, Watermarks and Sinks": streaming/apache-spark/summary.md
+          - Concepts:
+              - "Micro-batch Execution and Triggers": streaming/apache-spark/concepts/micro-batch-execution-and-triggers.md
+              - "Kafka Source and Checkpoints": streaming/apache-spark/concepts/kafka-source-and-checkpoints.md
+              - "Event Time and Watermarks": streaming/apache-spark/concepts/event-time-and-watermarks.md
+              - "Stateful Operations and the State Store": streaming/apache-spark/concepts/stateful-operations-and-state-store.md
+              - "Output Modes, Sinks and Exactly-once": streaming/apache-spark/concepts/output-modes-and-sinks.md
   - Spark:
       - Overview: spark/index.md
       - PySpark Function Reference: spark/pyspark-functions.md
